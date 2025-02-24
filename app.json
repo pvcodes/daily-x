@@ -1,0 +1,46 @@
+{
+	"expo": {
+		"name": "daily-x",
+		"slug": "daily-x",
+		"version": "1.0.0",
+		"userInterfaceStyle": "automatic",
+		"newArchEnabled": true,
+		"web": {
+			"bundler": "metro",
+			"output": "static"
+		},
+		"plugins": [
+			"expo-router",
+			[
+				"expo-splash-screen",
+				{
+					"backgroundColor": "#232323",
+					"image": "./assets/images/splash-icon.png"
+				}
+			],
+			"expo-secure-store"
+		],
+		"experiments": {
+			"typedRoutes": true
+		},
+		"scheme": "dailyx",
+		"extra": {
+			"router": {
+				"origin": false
+			},
+			"eas": {
+				"projectId": "3102b082-6b8a-4b5e-b2c5-be846c62c439"
+			}
+		},
+		"ios": {
+			"bundleIdentifier": "com.pvcodes.dailyx",
+			"infoPlist": {
+				"ITSAppUsesNonExemptEncryption": false
+			}
+		},
+		"android": {
+			"package": "com.pvcodes.dailyx"
+		},
+		"owner": "pvcodes"
+	}
+}
