@@ -12,19 +12,10 @@ const APP = {
 const API_URL = "https://daily-x-be.onrender.com";
 
 const AUTH_CONFIG = {
-	androidClientId:
-		"463524821846-hvor8gsr0n09f5gtd018fufckdtns3ss.apps.googleusercontent.com",
-	iosClientId:
-		"463524821846-dei6q2idrvlcs03dqgaalvi3oasn8vo4.apps.googleusercontent.com",
-	webClientId:
-		"463524821846-4crjoeq23lkld6bmjns6eokqv75jbo46.apps.googleusercontent.com",
+	androidClientId: 'your-android-client-id',
+	iosClientId: 'your-ios-client-id',
+	webClientId: 'your-web-client-id',
 };
-
-// const AUTH_CONFIG = {
-// 	androidClientId: process.env.GOOGLE_AUTH_CLIENTID_ANDROID,
-// 	iosClientId: process.env.GOOGLE_AUTH_CLIENTID_IOS,
-// 	webClientId: process.env.GOOGLE_AUTH_CLIENTID_WEB,
-// };
 
 const STORAGE_KEYS = {
 	USER: "@user",
