@@ -1,4 +1,5 @@
 import images from "./images";
+import Icon from "./icons";
 
 const MAX_INT = Number.MAX_SAFE_INTEGER;
 
@@ -8,7 +9,7 @@ const APP = {
 	WEBSITE_URL: "https://daily-x.vercel.app/",
 };
 
-const API_URL = "http://192.168.29.199:3000";
+const API_URL = "https://daily-x-be.onrender.com";
 
 const AUTH_CONFIG = {
 	androidClientId:
@@ -30,4 +31,4 @@ const STORAGE_KEYS = {
 	TOKEN: "@token",
 };
 
-export { images, APP, AUTH_CONFIG, STORAGE_KEYS, API_URL, MAX_INT };
+export { Icon, images, APP, AUTH_CONFIG, STORAGE_KEYS, API_URL, MAX_INT };

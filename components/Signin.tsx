@@ -7,11 +7,12 @@ import { cn } from '~/lib/utils';
 import { Card, CardContent, CardFooter } from './ui/card';
 import { Label } from './ui/label';
 import { Input } from './ui/input';
-import { AlertCircle, Cross, CrossIcon, X } from 'lucide-react-native';
+import { AlertCircle, X } from 'lucide-react-native'; // TODO: Move to icons directory
 import { Checkbox } from './ui/checkbox';
 import { H4 } from './ui/typography';
 import * as WebBrowser from 'expo-web-browser';
 import { useAuthStore, useGoogleSignIn } from '~/hooks/useAuth';
+import { Icon } from '~/constants';
 
 
 WebBrowser.maybeCompleteAuthSession();
@@ -25,7 +26,7 @@ const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
 type ErrorField = 'email' | 'password' | 'name' | 'confirmPassword' | 'terms' | null;
 
-const AuthModal = () => {
+const SignIn = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [activeTab, setActiveTab] = useState<'signin' | 'signup'>('signin');
     const [signInData, setSignInData] = useState({ email: '', password: '' });
@@ -260,6 +261,8 @@ const AuthModal = () => {
                                                         variant="outline"
                                                         className="w-full flex-row justify-center items-center gap-2"
                                                     >
+
+                                                        <Icon.Google />
                                                         <Text className="font-semibold dark:text-white">Continue with Google</Text>
                                                     </Button>
                                                 </CardFooter>
@@ -356,7 +359,8 @@ const AuthModal = () => {
                     </Pressable>
                 </Modal>
                 <Button className="rounded-2xl p-2" onPress={showModal}>
-                    <Text className="font-bold text-center text-white">Let's Get Started</Text>
+                    {/* <Icon.Google /> */}
+                    <Text className="font-bold text-center text-white dark:text-black">Let's Get Started</Text>
                 </Button>
             </SafeAreaView>
         </SafeAreaProvider>
@@ -384,4 +388,4 @@ const TermsText = ({ colorScheme }: { colorScheme: 'light' | 'dark' | null }) =>
     </Text>
 );
 
-export default AuthModal;
+export default SignIn;

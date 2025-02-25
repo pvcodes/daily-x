@@ -8,12 +8,9 @@ import { Platform } from 'react-native';
 import { NAV_THEME } from '~/lib/constants';
 import { useColorScheme } from '~/lib/useColorScheme';
 import { PortalHost } from '@rn-primitives/portal';
-import { ThemeToggle } from '~/components/ThemeToggle';
 import { setAndroidNavigationBar } from '~/lib/android-navigation-bar';
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { dateToString, getDateInMMYYYY, queryClient } from '~/lib/utils';
-import { format } from 'date-fns';
-
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from '~/lib/utils';
 
 const LIGHT_THEME: Theme = {
   ...DefaultTheme,
@@ -29,7 +26,7 @@ export {
   ErrorBoundary,
 } from 'expo-router';
 
-export default function RootLayout() {
+export default function AppLayout() {
   const hasMounted = React.useRef(false);
   const { colorScheme, isDarkColorScheme } = useColorScheme();
   const [isColorSchemeLoaded, setIsColorSchemeLoaded] = React.useState(false);
@@ -58,55 +55,19 @@ export default function RootLayout() {
 
         {/* <ThemeProvider value={ LIGHT_THEME}> */}
         <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
-        <Stack>
+        <Stack >
           <Stack.Screen
-            name='index'
+            name='(root)'
             options={{
-              title: 'Starter Base',
-              headerRight: () => <ThemeToggle />,
+              headerShown: false
             }}
           />
-
-          <Stack.Screen
-            name='(tabs)'
-            options={{
-              headerShown: false,
-              title: 'Dashboard'
-            }}
-          />
-
-          <Stack.Screen
+            <Stack.Screen
             name='oauthredirect'
             options={{
               headerShown: false
-              // title: 'Welcome',
-              // headerRight: () => <ThemeToggle />,
             }}
           />
-
-          <Stack.Screen
-            name='expense/[day]'
-            options={({ route }) => {
-              const day = route.params.day
-              // headerShown: false,
-              return {
-                title: format(day, 'MMM dd'),
-              }
-              // headerRight: () => <ThemeToggle />,
-            }}
-          />
-
-          <Stack.Screen
-            name='profile'
-            options={{
-              // headerShown: false
-              title: 'Profile',
-              // headerRight: () => <ThemeToggle />,
-            }}
-          />
-
-
-
         </Stack>
         <PortalHost />
       </QueryClientProvider>

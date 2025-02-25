@@ -6,11 +6,6 @@ import { ScrollView, View } from "react-native";
 import { useSharedValue } from "react-native-reanimated";
 
 export default function TabLayout() {
-    const isAuthenticated = useAuthStore(state => state.isAuthenticated)
-    const user = useAuthStore(state => state.user)
-    // console.log(isAuthenticated, user)
-    if (!isAuthenticated) return <Redirect href='/oauthredirect' />
-
     return (
 
 

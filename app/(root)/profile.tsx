@@ -14,7 +14,7 @@ import { Text } from '~/components/ui/text';
 import { useAuthStore } from '~/hooks/useAuth';
 
 // Memoize the Screen component to prevent unnecessary re-renders
-const Screen = React.memo(() => {
+const ProfilePage = React.memo(() => {
     const [isEditing, setIsEditing] = React.useState(false);
     const user = useAuthStore(state => state.user);
     const signOut = useAuthStore(state => state.signOut);
@@ -33,7 +33,7 @@ const Screen = React.memo(() => {
             <Card className='w-full max-w-sm p-6 rounded-2xl'>
                 <CardHeader className='items-center'>
                     <Avatar alt="Rick Sanchez's Avatar" className='w-24 h-24'>
-                        <AvatarImage source={{ uri: '' }} />
+                        <AvatarImage source={{ uri: user?.img_url }} />
                         <AvatarFallback>
                             <Text>{user?.name[0].toLocaleUpperCase()}</Text>
                         </AvatarFallback>
@@ -82,4 +82,4 @@ const Screen = React.memo(() => {
     );
 });
 
-export default Screen;
+export default ProfilePage;
