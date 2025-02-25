@@ -28,6 +28,7 @@ const features = [
 
 const AuthPage = () => {
     const { isLoading, isAuthenticated } = useAuthStore();
+    console.log(isAuthenticated)
 
     if (!isLoading && isAuthenticated) {
         return <Redirect href="/" />;

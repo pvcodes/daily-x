@@ -31,8 +31,8 @@ const getAuthToken = async (
 			});
 		}
 		const responseData = await response.json(); // Removed the redundant call
-		if (responseData.error) throw responseData.error;
 		console.log(responseData); // Updated to log the token instead of the entire data
+		if (responseData.error) throw responseData.error;
 		return responseData as User & { auth_token: string };
 	} catch (error) {
 		console.log(error);

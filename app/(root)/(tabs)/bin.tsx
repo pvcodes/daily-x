@@ -1,11 +1,10 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import ComingSoon from '~/components/ComingSoon'
 
 const Bins = () => {
     return (
-        <View>
-            <Text> Bin </Text>
-        </View>
+        <ComingSoon />
     )
 }
 

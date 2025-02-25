@@ -53,7 +53,7 @@ export const useAuthStore = create<AuthState>()(
                         isLoading: false
                     })
                 } catch (error) {
-                    console.error('Email sign-in error:', error)
+                    console.log('Email sign-in error:', error)
                     // set({ isLoading: false })
                     throw error
                 }
@@ -122,13 +122,14 @@ export const useGoogleSignIn = () => {
     useEffect(() => {
         const fetch = async () => {
             try {
+                console.log('called fetch')
                 if (response?.type === 'success' && response.authentication?.accessToken) {
                     setLoading(true);
                     const userData = await userEndpoint.getAuthToken('google-oauth', response.authentication.accessToken);
                     setUserAndToken(userData, userData.auth_token);
                 }
             } catch (error) {
-                console.error('Google sign-in error:', error);
+                console.log('Google sign-in error:', JSON.stringify(error));
             } finally {
                 setLoading(false);
             }
